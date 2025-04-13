@@ -1,0 +1,11 @@
+services:
+  sample_squid:
+    container_name: sample_squid
+    ports:
+      - 3128:3128
+    build:
+      ./
+    volumes:
+      - ./squid_log:/var/log/squid/
+      - ./squid_etc/squid.conf:/etc/squid/squid.conf:ro
+      - ./squid_spool:/var/spool/squid/

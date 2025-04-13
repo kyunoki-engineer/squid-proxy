@@ -9,3 +9,9 @@ services:
       - ./squid_log:/var/log/squid/
       - ./squid_etc/squid.conf:/etc/squid/squid.conf:ro
       - ./squid_spool:/var/spool/squid/
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    external: true

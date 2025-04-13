@@ -1,0 +1,16 @@
+services:
+  ubuntu:
+    build:
+      ./
+    container_name: my-ubuntu
+    ports:
+      - 80:80
+    tty: true                     # コンテナを対話可能にする（Ctrl+C で落ちにくく）
+    stdin_open: true
+    privileged: true  # Docker-in-Docker を有効にするために特権モードにする
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    external: true
